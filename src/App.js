@@ -2,7 +2,7 @@ import React from 'react';
 import MainPreview from './MainPreview';
 import Forecast from './Forecast';
 import SearchBar from './SearchBar';
-import SmallPreview from './SmallPreview';
+import Favorites from './Favorites';
 
 function App(props) {
   return (
@@ -19,20 +19,7 @@ function App(props) {
             </div>
         </div>
         <SearchBar />
-        <div className="favorites">
-            <div className="smallCityCard">
-                <SmallPreview data={props.data}/>
-                <Forecast data={props.data}/>
-            </div>
-            <div className="smallCityCard">
-                <SmallPreview data={props.data}/>
-                <Forecast data={props.data}/>
-            </div>
-            <div className="smallCityCard">
-                <SmallPreview data={props.data}/>
-                <Forecast data={props.data}/>
-            </div>
-        </div>
+        <Favorites />
     </div>
   );
 }
