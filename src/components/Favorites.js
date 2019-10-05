@@ -33,7 +33,7 @@ class Favorites extends React.Component {
             <div className="favorites">
                 {this.state.cities.map((city, i) => {
                     return (
-                        <div className="smallCityCard">
+                        <div className="smallCityCard" key={city.name} >
                             <SmallPreview data={city}/>
                             <Forecast data={city}/>
                         </div>

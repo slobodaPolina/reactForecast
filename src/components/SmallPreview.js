@@ -5,6 +5,7 @@ import Image from './Image';
 class SmallPreview extends React.Component {
     render() {
         const handleOnClick = () => {
+            console.log("RRR");
             this.props.handleOnClick(this.props.data.name);
         };
         return (
