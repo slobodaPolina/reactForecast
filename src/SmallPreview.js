@@ -3,15 +3,15 @@ import Image from './Image';
 
 function SmallPreview(props) {
   return (
-    <div class="row" style={{margin: "10px", height: "36px"}}>
-        <div class="width45 row">
-            <div class="cityTitle">{props.data.name}</div>
-            <div class="cityTemp">{props.data.main.temp} °C</div>
-            <div style={{ width: "36px" }}>
+    <div className="row SmallPreviewContainer">
+        <div className="width45 row">
+            <div className="cityTitle">{props.data.name}</div>
+            <div className="cityTemp">{props.data.main.temp} °C</div>
+            <div className="width36px">
                 <Image name={props.data.weather[0].main}/>
             </div>
         </div>
-        <button class="roundButton removeButton">+</button>
+        <button className="roundButton removeButton">+</button>
     </div>
   );
 }

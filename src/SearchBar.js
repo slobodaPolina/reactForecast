@@ -13,15 +13,15 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        let msg = this.state.isCityValid ? "" : <div class="error-message">Seems like the city is not valid</div>;
+        let msg = this.state.isCityValid ? "" : <div className="error-message">Seems like the city is not valid</div>;
         return (
             <div>
-                <div class="search-bar row">
-                    <div class="bigText">Избранное</div>
+                <div className="search-bar row">
+                    <div className="bigText">Избранное</div>
                     <div>
                         <input id="search-input" type="search"
                             placeholder="Добавить новый город" value={this.state.city} onChange={this.handleInputChange}/>
-                        <button class="search-button roundButton" onClick={this.handleSearch}>+</button>
+                        <button className="search-button roundButton" onClick={this.handleSearch}>+</button>
                     </div>
                 </div>
                 {msg}

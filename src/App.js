@@ -6,29 +6,29 @@ import SmallPreview from './SmallPreview';
 
 function App(props) {
   return (
-    <div class="fixed-margin-children">
-        <div class="header">
-            <div class="bigText flex1">Погода здесь</div>
-            <button class="georefRefresh">Обновить геолокацию</button>
-            <div class="flex1"></div>
+    <div className="fixed-margin-children">
+        <div className="header">
+            <div className="bigText flex1">Погода здесь</div>
+            <button className="georefRefresh">Обновить геолокацию</button>
+            <div className="flex1"></div>
         </div>
-        <div class="row main">
+        <div className="row main">
             <MainPreview data={props.data}/>
-            <div class="width45">
+            <div className="width45">
                 <Forecast data={props.data}/>
             </div>
         </div>
         <SearchBar />
-        <div class="favorites">
-            <div class="smallCityCard">
+        <div className="favorites">
+            <div className="smallCityCard">
                 <SmallPreview data={props.data}/>
                 <Forecast data={props.data}/>
             </div>
-            <div class="smallCityCard">
+            <div className="smallCityCard">
                 <SmallPreview data={props.data}/>
                 <Forecast data={props.data}/>
             </div>
-            <div class="smallCityCard">
+            <div className="smallCityCard">
                 <SmallPreview data={props.data}/>
                 <Forecast data={props.data}/>
             </div>
