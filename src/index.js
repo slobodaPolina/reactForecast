@@ -8,7 +8,6 @@ import App from './components/App';
 
 function preprocessData(data) {
     data.main.temp = (data.main.temp - 273.15).toFixed(1);
-    data.main.pressureAtm = (data.main.pressure * 0.001).toFixed(2);
     data.main.pressureMmHg = (data.main.pressure * 0.75).toFixed(2);
     return data;
 }
