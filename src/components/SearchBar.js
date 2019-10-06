@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -33,24 +34,16 @@ class SearchBar extends React.Component {
         this.setState({city: event.target.value});
     }
 
-    handleSearch(event) { //TODO
-        var cityName = this.state.city;
-        var citiesKeys = {};
-        // getCities().forEach(city => citiesKeys[city.name] = city.id});
-        var cityCode = citiesKeys[cityName];
-        if (cityCode) {
-            /*axios.get('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?id=' + cityCode + '&appid=c21880c5125c247d642c0e4058a0a704')
-                .then(({ data }) => {
-                    console.info(data);
-                    preprocessData(data);
-                    drawData(data);
-                }).catch(error => {
-                    this.setState({isCityValid: false});
-                });*/
-        } else {
-            this.setState({isCityValid: false});
-        }
+    handleSearch(event) {
+        this.props.dispatch({
+            type: 'ADD_FAVORITE',
+            cityName: this.state.city,
+            successCallback: () => this.setState({isCityValid: true}),
+            failureCallback: () => this.setState({isCityValid: false})
+        });
     }
 }
 
-export default SearchBar;
+export const SearchBarContainer = connect()(SearchBar);
+
+export default SearchBarContainer;
