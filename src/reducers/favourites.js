@@ -1,11 +1,11 @@
-export const favourites = (state = [], action) => {
+export const favourites = (field = [], action) => {
     switch (action.type) {
         case 'ADD_FAVOURITE':
-            return state.concat([action.city]);
+            return field.concat([action.cityName]);
         case 'REMOVE_FAVOURITE':
-            return state.filter(city => city !== action.city);
+            return field.filter(city => city !== action.cityName);
       default:
-        return state;
+        return field;
    }
 };
 export default favourites;

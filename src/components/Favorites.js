@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Forecast from './Forecast';
 import SmallPreview from './SmallPreview';
 
@@ -34,7 +35,7 @@ class Favorites extends React.Component {
                 {this.state.cities.map((city, i) => {
                     return (
                         <div className="smallCityCard" key={city.name} >
-                            <SmallPreview data={city}/>
+                            <SmallPreview city={city} removeCity={this.removeGenerator(city.name)}/>
                             <Forecast data={city}/>
                         </div>
                     )
@@ -42,6 +43,16 @@ class Favorites extends React.Component {
             </div>
         );
     }
+
+    removeGenerator(cityName) {
+        return () => this.props.dispatch({
+            type: 'REMOVE_FAVOURITE', cityName
+        });
+    }
 }
 
-export default Favorites;
+export const FavoritesContainer = connect(
+    state => ({ favoritesNames: state.favorites })
+)(Favorites);
+
+export default FavoritesContainer;
