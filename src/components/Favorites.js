@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Forecast from './Forecast';
 import SmallPreview from './SmallPreview';
+import Loading from './Loading';
 
 class Favorites extends React.Component {
     render() {
@@ -11,7 +12,7 @@ class Favorites extends React.Component {
                     return (
                         <div className="smallCityCard" key={city.name} >
                             <SmallPreview city={city} removeCity={this.removeGenerator(city.name)} />
-                            <Forecast data={city}/>
+                            {city.loaded ? <Forecast data={city}/> : <Loading />}
                         </div>
                     )
                 })}

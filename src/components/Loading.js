@@ -5,7 +5,7 @@ function Loading(props) {
         <div>
             <div className="bigText">Подождите, данные загружаются</div>
             <div className="refreshBanner">
-                <img className="refreshImage" src="/images/refresh.svg"/>
+                <img className="refreshImage" src="/images/refresh.svg" alt="loading"/>
             </div>
         </div>
     );

@@ -5,7 +5,6 @@ import addCityByName from '../cityAdder';
 class GeorefRefresh extends React.Component {
     constructor(props) {
         super(props);
-        // Эта привязка обязательна для работы `this` в колбэке.
         this.handleSearch = this.handleSearch.bind(this);
     }
 

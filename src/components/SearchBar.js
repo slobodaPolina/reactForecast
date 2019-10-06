@@ -9,7 +9,6 @@ class SearchBar extends React.Component {
             city: "",
             isCityValid: true
         };
-        // Эта привязка обязательна для работы `this` в колбэке.
         this.handleSearch = this.handleSearch.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -42,11 +41,24 @@ class SearchBar extends React.Component {
         if (this.props.favorites.find(city => city.name === this.state.city)) {
             this.setState({isCityValid: false});
         } else {
+            // it is just to start the loader
+            this.props.dispatch({
+                type: 'ADD_FAVORITE',
+                city: {name: this.state.city}
+            });
+            // load real data and display it
             addCityByName(
                 this.state.city,
                 'ADD_FAVORITE',
                 this.props.dispatch,
-                () => this.setState({isCityValid: true}),
+                () => {
+                    this.setState({isCityValid: true});
+                    // when it succesfully loaded? remove loading card
+                    this.props.dispatch({
+                        type: 'REMOVE_FAVORITE',
+                        cityName: this.state.city
+                    });
+                },
                 () => this.setState({isCityValid: false})
             );
         }

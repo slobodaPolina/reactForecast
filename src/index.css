@@ -116,7 +116,6 @@ button:hover {
     max-height: 150px;
 }
 
-
 .search-bar input:focus{
     outline: none;
 }
@@ -146,6 +145,7 @@ button:hover {
     height: 70%;
     animation: spin 3s cubic-bezier(.77,0,.18,1) infinite;
 }
+
 @keyframes spin {
     from { transform:rotate(0deg); }
     to { transform:rotate(360deg); }
