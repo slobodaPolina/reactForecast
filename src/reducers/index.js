@@ -4,6 +4,5 @@ import geolocation from './geolocation';
 
 export default combineReducers({
     favourites,
-    geolocation,
-    cityName: (state = {}) => state
+    geolocation
 });

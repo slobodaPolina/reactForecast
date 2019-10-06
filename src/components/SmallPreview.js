@@ -4,10 +4,6 @@ import Image from './Image';
 
 class SmallPreview extends React.Component {
     render() {
-        const handleOnClick = () => {
-            console.log("RRR");
-            this.props.handleOnClick(this.props.data.name);
-        };
         return (
             <div className="row SmallPreviewContainer">
                 <div className="width45 row">
@@ -17,24 +13,23 @@ class SmallPreview extends React.Component {
                         <Image name={this.props.data.weather[0].main}/>
                     </div>
                 </div>
-                <button className="roundButton removeButton" onClick={this.handleOnClick}>+</button>
+                <button className="roundButton removeButton"
+                    onClick={() => {this.props.removeCity(this.props.data.name)}}>+</button>
             </div>
         );
     }
 }
 
-const addFavouriteAction = (name) => ({
-    type: 'REMOVE_FAVOURITE',
-    city: name
-});
-
 export const SmallPreviewContainer = connect(
     (state, ownProps) => {
-        return({ cityName: state.cityName });
+        return({ city: state.city }); //TODO ???
     },
     (dispatch, ownProps) => {
         return({
-            handleOnClick: itemState => dispatch(addFavouriteAction(ownProps.prop))
+            removeCity: itemState => dispatch({
+                type: 'REMOVE_FAVOURITE',
+                city: (ownProps.data.name)
+            })
         });
     }
 )(SmallPreview);

@@ -1,9 +1,9 @@
-export const geolocation = (state = {}, action) => {
+export const geolocation = (field = null, action) => {
     switch (action.type) {
       case 'SET_GEOLOCATION':
-         return Object.assign({}, state, { geolocation: action.city });
+         return action.city;
       default:
-        return state;
+        return field;
    }
 };
 export default geolocation;
