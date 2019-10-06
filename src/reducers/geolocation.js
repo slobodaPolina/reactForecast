@@ -1,4 +1,4 @@
-export const geolocation = (field = {}, action) => {
+export const geolocation = (field = null, action) => {
     switch (action.type) {
       case 'SET_GEOLOCATION':
          return action.city;

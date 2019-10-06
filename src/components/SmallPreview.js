@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from './Image';
+import WeatherImage from './WeatherImage';
 
 class SmallPreview extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class SmallPreview extends React.Component {
                     <div className="cityTitle">{this.props.city.name}</div>
                     <div className="cityTemp">{this.props.city.main.temp} °C</div>
                     <div className="width36px">
-                        <Image name={this.props.city.weather[0].main}/>
+                        <WeatherImage name={this.props.city.weather[0].main}/>
                     </div>
                 </div>
                 <button className="roundButton removeButton"

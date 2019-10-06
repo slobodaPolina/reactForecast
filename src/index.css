@@ -130,3 +130,23 @@ button:hover {
 .fixed-margin-children > * {
     margin: 50px;
 }
+
+.refreshBanner {
+    background-color: #00cccc;
+    width: 33%;
+    height: 100px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.refreshImage {
+    height: 70%;
+    animation: spin 3s cubic-bezier(.77,0,.18,1) infinite;
+}
+@keyframes spin {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}

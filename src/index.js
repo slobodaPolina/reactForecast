@@ -7,7 +7,7 @@ import './index.css';
 import App from './components/App';
 
 let initialStore = {
-    geolocation: {},
+    geolocation: null,
     favorites: []
 };
 const store = createStore(

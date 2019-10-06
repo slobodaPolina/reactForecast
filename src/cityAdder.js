@@ -1,7 +1,13 @@
 import axios from 'axios';
 import getCityCodeByName from './vocabulary/vocabulary';
 
-export function addCityByName(cityName, actionType, dispatch, successCallback, failureCallback) {
+export function addCityByName(
+    cityName,
+    actionType,
+    dispatch,
+    successCallback = () => {},
+    failureCallback = () => {}
+) {
     function preprocessData(data) {
         data.main.temp = (data.main.temp - 273.15).toFixed(1);
         data.main.pressureMmHg = (data.main.pressure * 0.75).toFixed(2);
