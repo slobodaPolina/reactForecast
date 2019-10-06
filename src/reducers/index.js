@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import favourites from './favourites';
+import favorites from './favorites';
 import geolocation from './geolocation';
 
 export default combineReducers({
-    favourites,
+    favorites,
     geolocation
 });
