@@ -37,6 +37,18 @@ class SearchBar extends React.Component {
     }
 
     handleSearch(event) {
+        var getCallback = (isSuccess) => () => {
+            if (isSuccess) {
+                this.setState({city: ""});
+            }
+            this.setState({isCityValid: isSuccess});
+            // remove loading card anyway
+            this.props.dispatch({
+                type: 'REMOVE_FAVORITE',
+                cityName: this.state.city
+            });
+        }
+
         event.preventDefault();
         if (this.props.favorites.find(city => city.name === this.state.city)) {
             this.setState({isCityValid: false});
@@ -51,15 +63,8 @@ class SearchBar extends React.Component {
                 this.state.city,
                 'ADD_FAVORITE',
                 this.props.dispatch,
-                () => {
-                    this.setState({isCityValid: true});
-                    // when it succesfully loaded? remove loading card
-                    this.props.dispatch({
-                        type: 'REMOVE_FAVORITE',
-                        cityName: this.state.city
-                    });
-                },
-                () => this.setState({isCityValid: false})
+                getCallback(true),
+                getCallback(false)
             );
         }
     }
