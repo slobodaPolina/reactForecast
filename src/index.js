@@ -16,25 +16,7 @@ var city = {"coord":{"lon":145.77,"lat":-16.92},"weather":[{"id":802,"main":"Clo
 
 let initialStore = {
     geolocation: "Cair",
-    favorites: [{
-        name: "Cair",
-        main: {
-            temp: 27,
-            pressureMmHg: 700,
-            humidity: 40
-        },
-        weather: [{
-            main: "Clear",
-            description: "Cool yeah"
-        }],
-        wind: {
-            speed: 3
-        },
-        coord: {
-            lon: 23,
-            lat: 45
-        }
-    }]
+    favorites: []
 };
 const store = createStore(
     rootReducer,
