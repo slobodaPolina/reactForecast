@@ -26,7 +26,7 @@ export function addCityByName(
         /*axios.get('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?id=' + cityCode + '&appid=c21880c5125c247d642c0e4058a0a704')
             .then(({ data }) => {
                 successCallback();
-                this.props.dispatch({
+                dispatch({
                     type: actionType,
                     city: preprocessData(data)
                 });

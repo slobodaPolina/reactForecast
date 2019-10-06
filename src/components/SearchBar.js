@@ -38,15 +38,15 @@ class SearchBar extends React.Component {
 
     handleSearch(event) {
         var getCallback = (isSuccess) => () => {
-            if (isSuccess) {
-                this.setState({city: ""});
-            }
             this.setState({isCityValid: isSuccess});
             // remove loading card anyway
             this.props.dispatch({
                 type: 'REMOVE_FAVORITE',
                 cityName: this.state.city
             });
+            if (isSuccess) {
+                this.setState({city: ""});
+            }
         }
 
         event.preventDefault();
