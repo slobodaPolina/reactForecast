@@ -39,6 +39,11 @@ export function addCityByGeolocation(dispatch) {
             dispatch
         );
 
+    // setting loading
+    dispatch({
+        type: 'SET_GEOLOCATION',
+        city: null
+    });
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
             position => addCityByCoords(
@@ -59,7 +64,7 @@ function addCityByCoords(lat, lon, dispatch) {
         type: 'SET_GEOLOCATION',
         city: preprocessData(city)
     });*/
-    axios.get('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=' + lat.toFixed(0) + '&lon=' + lon.toFixed(0) + '&appid=c21880c5125c247d642c0e4058a0a704')
+    axios.get('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=' + Math.round(lat) + '&lon=' + Math.round(lon) + '&appid=c21880c5125c247d642c0e4058a0a704')
         .then(({ data }) => {
             dispatch({
                 type: 'SET_GEOLOCATION',
