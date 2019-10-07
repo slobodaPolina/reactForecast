@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addCityByGeolocation } from '../cityAdder';
 import MainPreview from './MainPreview';
 import Forecast from './Forecast';
 import Loading from './Loading';
@@ -16,6 +17,7 @@ class MainBlock extends React.Component {
                 </div>
             );
         } else {
+            addCityByGeolocation(this.props.dispatch);
             return <Loading />;
         }
     }
