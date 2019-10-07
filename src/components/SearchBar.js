@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import addCityByName from '../cityAdder';
+import { addCityByName } from '../cityAdder';
 
 class SearchBar extends React.Component {
     constructor(props) {

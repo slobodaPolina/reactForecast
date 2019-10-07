@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import addCityByName from '../cityAdder';
-import addCityByCoords from '../cityAdder';
+import * as cityAdder from '../cityAdder';
 
 class GeorefRefresh extends React.Component {
     constructor(props) {
@@ -17,7 +16,7 @@ class GeorefRefresh extends React.Component {
 
     handleSearch(event) {
         var addDefaultCity = () =>
-            addCityByName(
+            cityAdder.addCityByName(
                 "Sankt-Peterburg", //this is the default value,
                 'SET_GEOLOCATION',
                 this.props.dispatch
@@ -25,8 +24,8 @@ class GeorefRefresh extends React.Component {
 
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
-                position => addCityByCoords(position.coords.latitude, position.coords.longitude),
-                addDefaultCity()
+                position => cityAdder.addCityByCoords(position.coords.latitude, position.coords.longitude, this.props.dispatch),
+                addDefaultCity
             );
         } else {
             addDefaultCity();

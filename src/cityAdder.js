@@ -55,4 +55,4 @@ function preprocessData(data) {
     return data;
 }
 
-export default addCityByName;
+export default {addCityByName, addCityByCoords};
