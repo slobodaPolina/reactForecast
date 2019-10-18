@@ -59,12 +59,13 @@ class SearchBar extends React.Component {
                 city: {name: this.state.city}
             });
             // load real data and display it
-            addCityByName(
-                this.state.city,
-                'ADD_FAVORITE',
-                this.props.dispatch,
-                getCallback(true),
-                getCallback(false)
+            this.props.dispatch(
+                addCityByName(
+                    this.state.city,
+                    'ADD_FAVORITE',
+                    getCallback(true),
+                    getCallback(false)
+                )
             );
         }
     }

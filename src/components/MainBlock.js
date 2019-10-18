@@ -17,7 +17,7 @@ class MainBlock extends React.Component {
                 </div>
             );
         } else {
-            this.props.dispatch(addCityByGeolocation);
+            this.props.dispatch(addCityByGeolocation());
             return <Loading />;
         }
     }
