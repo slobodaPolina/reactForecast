@@ -31,30 +31,32 @@ export function addCityByName(
     }
 }
 
-export function addCityByGeolocation(dispatch) {
-    var addDefaultCity = () =>
-        addCityByName(
-            "Sankt-Peterburg", //this is the default value,
-            'SET_GEOLOCATION',
-            dispatch
-        );
-
-    // setting loading
-    dispatch({
-        type: 'SET_GEOLOCATION',
-        city: null
-    });
-    if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-            position => addCityByCoords(
-                position.coords.latitude,
-                position.coords.longitude,
+export function addCityByGeolocation() {
+    return (dispatch) => {
+        var addDefaultCity = () =>
+            addCityByName(
+                "Sankt-Peterburg", //this is the default value,
+                'SET_GEOLOCATION',
                 dispatch
-            ),
-            addDefaultCity
-        );
-    } else {
-        addDefaultCity();
+            );
+
+        // setting loading
+        dispatch({
+            type: 'SET_GEOLOCATION',
+            city: null
+        });
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                position => addCityByCoords(
+                    position.coords.latitude,
+                    position.coords.longitude,
+                    dispatch
+                ),
+                addDefaultCity
+            );
+        } else {
+            addDefaultCity();
+        }
     }
 }
 

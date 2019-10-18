@@ -6,7 +6,7 @@ class GeorefRefresh extends React.Component {
     render() {
         return (
             <button className="georefRefresh"
-                onClick={() => addCityByGeolocation(this.props.dispatch)}>
+                onClick={() => this.props.dispatch(addCityByGeolocation)}>
                     Обновить геолокацию
             </button>
         );
